@@ -21,7 +21,7 @@
 <br>
 
 <p align="center">
-    <a href="https://douglasdl.github.io/Akiya/">
+    <a href="https://douglasdl.github.io/Akiya/" target="_blank">
         <img alt="Akiya" src="./akiya_home.PNG" width="100%">
     </a>
 </p>
