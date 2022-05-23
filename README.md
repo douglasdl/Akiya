@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Happy" title="Happy" src="./happy_logo.PNG" />
+    <img alt="Akiya" title="Akiya" src="./akiya_logo.PNG" />
 </h1>
 
 <p align="center">
@@ -21,7 +21,9 @@
 <br>
 
 <p align="center">
-  <img alt="Happy" src="./happy_home.PNG" width="100%">
+    <a href="https://douglasdl.github.io/Akiya/">
+        <img alt="Akiya" src="./akiya_home.PNG" width="100%">
+    </a>
 </p>
 
 ## Tecnologias
@@ -85,20 +87,18 @@ Iniciar o Servidor
 </code>
 <br>
 
-## Projeto
+## Project
 
-O Happy é um projeto que visa facilitar visitas aos orfanatos próximos a você 
-
-Este é um projeto desenvolvido durante a **[Next Level Week](https://nextlevelweek.com/)**, realizada pela **[@Rocketseat](https://github.com/Rocketseat)** durante os dias 12 a 18 de Outubro de 2020 na Trilha Discovery com o professor Mayk Brito (https://github.com/maykbrito).
+This project was done to help find and share information about akiya in Japan.
 
 ## 🔖 Layout
 
 Você pode visualizar o layout do projeto através dos links abaixo:
 
-- [Layout Web](https://www.figma.com/file/mDEbnoojksG4w8sOxmudh3/Happy-Web?node-id=0%3A1) 
-- [Layout Mobile](https://www.figma.com/file/X27FfVxAgy9f5IFa7ONlph/Happy-Mobile?node-id=0%3A1) 
+- [Layout Web]() 
+- [Layout Mobile]() 
 
-Lembrando que você precisa ter uma conta no [Figma](http://figma.com/) para acessá-lo.
+[Figma](http://figma.com/)
 
 ## 📝 Licença
 
@@ -106,4 +106,4 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 
 ---
 
-<p align="center">Desenvolvido por Douglas Dias Leal</p>
+<p align="center">Developed by Douglas Dias Leal</p>
