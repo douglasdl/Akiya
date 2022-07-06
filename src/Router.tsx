@@ -5,7 +5,7 @@ import { Subscribe } from "./pages/Subscribe";
 export function Router() {
     return (
         <Routes>
-            <Route path="/" element={ <Subscribe /> } />
+            <Route path="/" element={ <Home /> } />
             <Route path="/home" element={ <Home /> } />
             <Route path="/home/akiya/:slug" element={ <Home /> } />
         </Routes>
