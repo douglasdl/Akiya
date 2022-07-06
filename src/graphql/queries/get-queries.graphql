@@ -1,0 +1,16 @@
+query GetAkiyas {
+  akiyas(orderBy: publishedAt_ASC) {
+    id
+    floorPlan
+    salePrice
+    picture(first: 1) {
+      url
+    }
+    landArea
+    buildArea
+    buildYear
+    vacantSince
+    garages
+    bedrooms
+  }
+}
