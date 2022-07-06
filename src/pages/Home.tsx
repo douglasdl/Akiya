@@ -20,7 +20,7 @@ export function Home() {
                             <Akiya 
                                 key={akiya.id}
                                 floorPlan={akiya.floorPlan}
-                                price={akiya.salePrice}
+                                price={Number(akiya.salePrice)}
                                 city={akiya.city}
                                 prefecture={akiya.prefecture}
                                 landArea={akiya.landArea}
@@ -37,7 +37,7 @@ export function Home() {
                             <Akiya 
                                 key={akiya.id}
                                 floorPlan={akiya.floorPlan}
-                                price={akiya.salePrice}
+                                price={Number(akiya.salePrice)}
                                 city={akiya.city}
                                 prefecture={akiya.prefecture}
                                 landArea={akiya.landArea}
