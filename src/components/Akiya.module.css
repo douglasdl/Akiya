@@ -97,6 +97,7 @@ header {
     padding: 0.2rem;
     border-radius: 4px;
     width: 50%;
+    font-size: 1.2rem;
 }
 
 
@@ -104,7 +105,7 @@ header {
 /* Smartphone screen size */
 @media (max-width: 768px) {
     html {
-        font-size: 87.5%;
+        font-size: 120%;
     }
 
     .mainImage {

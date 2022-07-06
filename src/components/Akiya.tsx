@@ -56,16 +56,16 @@ export function Akiya(props:AkiyaProps) {
             </div>
             <div className={styles.mainInfo}>
                 <div className={styles.areaInfo}>
-                    <div className={styles.field}>{props.landArea}m²</div>
-                    <div className={styles.field}>{props.buildArea}m²</div>
+                    <div className={styles.field}><strong>Terreno:&nbsp;</strong>{props.landArea}m²</div>
+                    <div className={styles.field}><strong>Const.:&nbsp;</strong>{props.buildArea}m²</div>
                 </div>
                 <div className={styles.buildInfo}>
-                    <div className={styles.field}>🏠: {props.built}</div>
-                    <div className={styles.field}>🏚️: {props.vacantSince}</div>
+                    <div className={styles.field} title="Ano de Construção">🏠: {props.built}</div>
+                    <div className={styles.field} title="Casa Vaga desde...">🏚️: {props.vacantSince}</div>
                 </div>
                 <div className={styles.roomsInfo}>
-                    <div className={styles.field}>🚗: {props.garages}</div>
-                    <div className={styles.field}>🛏️: {props.rooms}</div>
+                    <div className={styles.field}><strong>Vagas:&nbsp;</strong> {props.garages}&nbsp;🚗</div>
+                    <div className={styles.field}><strong>Quartos:&nbsp;</strong> {props.rooms}</div>
                 </div>
             </div>
         </div>
