@@ -2,7 +2,7 @@ import styles from './Akiya.module.css'
 
 interface AkiyaProps {
     floorPlan: string | null | undefined;
-    price: number | null | undefined;
+    price: number | bigint;
     city: string | null | undefined;
     prefecture: string | null | undefined;
     mainImage: string | undefined;
@@ -14,13 +14,31 @@ interface AkiyaProps {
     rooms: number | null | undefined;
 }
 
+
+
+
 export function Akiya(props:AkiyaProps) {
+
+    const japaneseIene = Intl.NumberFormat("ja", {
+        style: "currency",
+        currency: "JPY",
+    });
+
+    const brazilianReal = Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+    });
+
+    const BRLprice = Number(props.price) * 0.03975;
+
+    
     return (
         <div className={styles.akiya}>
             <header>
                 <div>
                     <h1>{props.floorPlan}</h1>
-                    <h2>{props.price}円</h2>
+                    <h2>{japaneseIene.format(props.price)}</h2>
+                    <div>{brazilianReal.format(BRLprice)}</div>
                 </div>
                 <div>
                     <h2>{props.city}</h2>

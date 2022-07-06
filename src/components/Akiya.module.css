@@ -25,7 +25,7 @@ header {
 
 .mainImage {
     width: 20rem;
-    height: 15rem;
+    
     
     border-radius: 8px;
 }
@@ -72,7 +72,7 @@ header {
     display: flex;
     flex-direction: column;
     
-    width: 80%;
+    width: 100%;
     gap: 0.5rem;
     padding: 0.2rem;
 }
@@ -96,4 +96,18 @@ header {
     margin: 0.2rem 0.4rem;
     padding: 0.2rem;
     border-radius: 4px;
+    width: 50%;
+}
+
+
+
+/* Smartphone screen size */
+@media (max-width: 768px) {
+    html {
+        font-size: 87.5%;
+    }
+
+    .mainImage {
+        width: 100%;
+    }
 }
