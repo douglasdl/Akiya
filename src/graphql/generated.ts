@@ -37,6 +37,7 @@ export type Akiya = Node & {
   buildArea?: Maybe<Scalars['Float']>;
   buildNumber?: Maybe<Scalars['Int']>;
   buildYear?: Maybe<Scalars['Int']>;
+  city?: Maybe<Scalars['String']>;
   /** The time the document was created */
   createdAt: Scalars['DateTime'];
   /** User that created this document */
@@ -56,6 +57,7 @@ export type Akiya = Node & {
   lastConfirmationDate?: Maybe<Scalars['Date']>;
   localization?: Maybe<Location>;
   picture: Array<Asset>;
+  prefecture?: Maybe<Prefectures>;
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']>;
   /** User that last published this document */
@@ -602,6 +604,7 @@ export type AkiyaCreateInput = {
   buildArea?: InputMaybe<Scalars['Float']>;
   buildNumber?: InputMaybe<Scalars['Int']>;
   buildYear?: InputMaybe<Scalars['Int']>;
+  city?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   floorPlan?: InputMaybe<Scalars['String']>;
   garages?: InputMaybe<Scalars['Int']>;
@@ -612,6 +615,7 @@ export type AkiyaCreateInput = {
   lastConfirmationDate?: InputMaybe<Scalars['Date']>;
   localization?: InputMaybe<LocationInput>;
   picture?: InputMaybe<AssetCreateManyInlineInput>;
+  prefecture?: InputMaybe<Prefectures>;
   rentalPrice?: InputMaybe<Scalars['Float']>;
   salePrice?: InputMaybe<Scalars['Float']>;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
@@ -748,6 +752,25 @@ export type AkiyaManyWhereInput = {
   buildYear_not?: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   buildYear_not_in?: InputMaybe<Array<Scalars['Int']>>;
+  city?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  city_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  city_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  city_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  city_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  city_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  city_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  city_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  city_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  city_starts_with?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   createdAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -859,6 +882,13 @@ export type AkiyaManyWhereInput = {
   picture_every?: InputMaybe<AssetWhereInput>;
   picture_none?: InputMaybe<AssetWhereInput>;
   picture_some?: InputMaybe<AssetWhereInput>;
+  prefecture?: InputMaybe<Prefectures>;
+  /** All values that are contained in given list. */
+  prefecture_in?: InputMaybe<Array<Prefectures>>;
+  /** All values that are not equal to given value. */
+  prefecture_not?: InputMaybe<Prefectures>;
+  /** All values that are not contained in given list. */
+  prefecture_not_in?: InputMaybe<Array<Prefectures>>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -954,6 +984,8 @@ export enum AkiyaOrderByInput {
   BuildNumberDesc = 'buildNumber_DESC',
   BuildYearAsc = 'buildYear_ASC',
   BuildYearDesc = 'buildYear_DESC',
+  CityAsc = 'city_ASC',
+  CityDesc = 'city_DESC',
   CreatedAtAsc = 'createdAt_ASC',
   CreatedAtDesc = 'createdAt_DESC',
   FloorPlanAsc = 'floorPlan_ASC',
@@ -972,6 +1004,8 @@ export enum AkiyaOrderByInput {
   LandAreaDesc = 'landArea_DESC',
   LastConfirmationDateAsc = 'lastConfirmationDate_ASC',
   LastConfirmationDateDesc = 'lastConfirmationDate_DESC',
+  PrefectureAsc = 'prefecture_ASC',
+  PrefectureDesc = 'prefecture_DESC',
   PublishedAtAsc = 'publishedAt_ASC',
   PublishedAtDesc = 'publishedAt_DESC',
   RentalPriceAsc = 'rentalPrice_ASC',
@@ -992,6 +1026,7 @@ export type AkiyaUpdateInput = {
   buildArea?: InputMaybe<Scalars['Float']>;
   buildNumber?: InputMaybe<Scalars['Int']>;
   buildYear?: InputMaybe<Scalars['Int']>;
+  city?: InputMaybe<Scalars['String']>;
   floorPlan?: InputMaybe<Scalars['String']>;
   garages?: InputMaybe<Scalars['Int']>;
   isForRental?: InputMaybe<Scalars['Boolean']>;
@@ -1001,6 +1036,7 @@ export type AkiyaUpdateInput = {
   lastConfirmationDate?: InputMaybe<Scalars['Date']>;
   localization?: InputMaybe<LocationInput>;
   picture?: InputMaybe<AssetUpdateManyInlineInput>;
+  prefecture?: InputMaybe<Prefectures>;
   rentalPrice?: InputMaybe<Scalars['Float']>;
   salePrice?: InputMaybe<Scalars['Float']>;
   vacantSince?: InputMaybe<Scalars['Date']>;
@@ -1030,6 +1066,7 @@ export type AkiyaUpdateManyInput = {
   buildArea?: InputMaybe<Scalars['Float']>;
   buildNumber?: InputMaybe<Scalars['Int']>;
   buildYear?: InputMaybe<Scalars['Int']>;
+  city?: InputMaybe<Scalars['String']>;
   floorPlan?: InputMaybe<Scalars['String']>;
   garages?: InputMaybe<Scalars['Int']>;
   isForRental?: InputMaybe<Scalars['Boolean']>;
@@ -1038,6 +1075,7 @@ export type AkiyaUpdateManyInput = {
   landArea?: InputMaybe<Scalars['Float']>;
   lastConfirmationDate?: InputMaybe<Scalars['Date']>;
   localization?: InputMaybe<LocationInput>;
+  prefecture?: InputMaybe<Prefectures>;
   rentalPrice?: InputMaybe<Scalars['Float']>;
   salePrice?: InputMaybe<Scalars['Float']>;
   vacantSince?: InputMaybe<Scalars['Date']>;
@@ -1193,6 +1231,25 @@ export type AkiyaWhereInput = {
   buildYear_not?: InputMaybe<Scalars['Int']>;
   /** All values that are not contained in given list. */
   buildYear_not_in?: InputMaybe<Array<Scalars['Int']>>;
+  city?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  city_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  city_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  city_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  city_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  city_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  city_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  city_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  city_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  city_starts_with?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   createdAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -1304,6 +1361,13 @@ export type AkiyaWhereInput = {
   picture_every?: InputMaybe<AssetWhereInput>;
   picture_none?: InputMaybe<AssetWhereInput>;
   picture_some?: InputMaybe<AssetWhereInput>;
+  prefecture?: InputMaybe<Prefectures>;
+  /** All values that are contained in given list. */
+  prefecture_in?: InputMaybe<Array<Prefectures>>;
+  /** All values that are not equal to given value. */
+  prefecture_not?: InputMaybe<Prefectures>;
+  /** All values that are not contained in given list. */
+  prefecture_not_in?: InputMaybe<Array<Prefectures>>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -2160,6 +2224,33 @@ export type ImageTransformationInput = {
   /** Resizes the image */
   resize?: InputMaybe<ImageResizeInput>;
 };
+
+export enum KyotoCities {
+  Ayabe = 'Ayabe',
+  Fukuchiyama = 'Fukuchiyama',
+  Ide = 'Ide',
+  Joyo = 'Joyo',
+  Kameoka = 'Kameoka',
+  Kasagi = 'Kasagi',
+  Kizugawa = 'Kizugawa',
+  Kumiyama = 'Kumiyama',
+  Kyotanabe = 'Kyotanabe',
+  Kyotanba = 'Kyotanba',
+  Kyotango = 'Kyotango',
+  Kyoto = 'Kyoto',
+  Maizuru = 'Maizuru',
+  MinamiYamaShiro = 'MinamiYamaShiro',
+  Miyazu = 'Miyazu',
+  Muko = 'Muko',
+  Nagaokakyo = 'Nagaokakyo',
+  Nantan = 'Nantan',
+  Oyamazaki = 'Oyamazaki',
+  Seika = 'Seika',
+  Uji = 'Uji',
+  Ujitawara = 'Ujitawara',
+  Yawata = 'Yawata',
+  Yosano = 'Yosano'
+}
 
 /** Locale system enumeration */
 export enum Locale {
@@ -4577,7 +4668,7 @@ export enum _SystemDateTimeFieldVariation {
 export type GetAkiyasQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAkiyasQuery = { __typename?: 'Query', akiyas: Array<{ __typename?: 'Akiya', id: string, floorPlan?: string | null, salePrice?: number | null, landArea?: number | null, buildArea?: number | null, buildYear?: number | null, vacantSince?: any | null, garages?: number | null, bedrooms?: number | null, picture: Array<{ __typename?: 'Asset', url: string }> }> };
+export type GetAkiyasQuery = { __typename?: 'Query', akiyas: Array<{ __typename?: 'Akiya', id: string, floorPlan?: string | null, salePrice?: number | null, prefecture?: Prefectures | null, city?: string | null, landArea?: number | null, buildArea?: number | null, buildYear?: number | null, vacantSince?: any | null, garages?: number | null, bedrooms?: number | null, picture: Array<{ __typename?: 'Asset', url: string }> }> };
 
 
 export const GetAkiyasDocument = gql`
@@ -4586,6 +4677,8 @@ export const GetAkiyasDocument = gql`
     id
     floorPlan
     salePrice
+    prefecture
+    city
     picture(first: 1) {
       url
     }

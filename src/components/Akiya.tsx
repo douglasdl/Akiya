@@ -4,6 +4,7 @@ interface AkiyaProps {
     floorPlan: string | null | undefined;
     price: number | null | undefined;
     city: string | null | undefined;
+    prefecture: string | null | undefined;
     mainImage: string | undefined;
     landArea: number | null | undefined;
     buildArea: number | null | undefined;
@@ -23,7 +24,7 @@ export function Akiya(props:AkiyaProps) {
                 </div>
                 <div>
                     <h2>{props.city}</h2>
-                    <h3>Kyoto</h3>
+                    <h3>{props.prefecture}</h3>
                 </div>
             </header>
             <img 

@@ -3,6 +3,8 @@ query GetAkiyas {
     id
     floorPlan
     salePrice
+    prefecture
+    city
     picture(first: 1) {
       url
     }

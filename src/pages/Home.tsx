@@ -22,6 +22,7 @@ export function Home() {
                                 floorPlan={akiya.floorPlan}
                                 price={akiya.salePrice}
                                 city={akiya.city}
+                                prefecture={akiya.prefecture}
                                 landArea={akiya.landArea}
                                 buildArea={akiya.buildArea}
                                 mainImage={mainImage}
@@ -38,9 +39,10 @@ export function Home() {
                                 floorPlan={akiya.floorPlan}
                                 price={akiya.salePrice}
                                 city={akiya.city}
+                                prefecture={akiya.prefecture}
                                 landArea={akiya.landArea}
                                 buildArea={akiya.buildArea}
-                                mainImage={""}
+                                mainImage={"https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"}
                                 garages={akiya.garages}
                                 built={akiya.buildYear}
                                 vacantSince={akiya.vacantSince}
