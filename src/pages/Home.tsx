@@ -14,7 +14,7 @@ export function Home() {
             <Header />
             <div className={styles.wrapper}>
                 {data?.akiyas.map(akiya => {
-                    if(akiya.picture.length === 1) {
+                    if(akiya.picture.length === 1 && akiya.salePrice !== -1) {
                         const mainImage = akiya.picture[0].url;
                         return (
                             <Akiya 
@@ -32,7 +32,7 @@ export function Home() {
                                 rooms={akiya.bedrooms}
                             />
                         )
-                    } else {
+                    } else if(akiya.picture.length <= 0 && akiya.salePrice !== -1) {
                         return (
                             <Akiya 
                                 key={akiya.id}

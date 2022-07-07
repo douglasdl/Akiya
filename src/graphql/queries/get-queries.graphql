@@ -1,5 +1,5 @@
 query GetAkiyas {
-  akiyas(orderBy: publishedAt_ASC) {
+  akiyas(orderBy: salePrice_ASC last: 1000) {
     id
     floorPlan
     salePrice

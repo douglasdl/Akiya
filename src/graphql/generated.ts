@@ -4673,7 +4673,7 @@ export type GetAkiyasQuery = { __typename?: 'Query', akiyas: Array<{ __typename?
 
 export const GetAkiyasDocument = gql`
     query GetAkiyas {
-  akiyas(orderBy: publishedAt_ASC) {
+  akiyas(orderBy: salePrice_ASC, last: 1000) {
     id
     floorPlan
     salePrice
