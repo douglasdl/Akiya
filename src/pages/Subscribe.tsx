@@ -1,5 +1,5 @@
 export function Subscribe() {
-    return (
-        <h1>Subscribe</h1>
-    )
+  return (
+    <h1>Subscribe</h1>
+  )
 }
