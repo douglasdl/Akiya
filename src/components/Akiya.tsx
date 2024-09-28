@@ -27,7 +27,7 @@ export function Akiya(props:AkiyaProps) {
   const BRLprice = Number(props.price) * 0.03975;
  
   return (
-    <div className="flex items-center justify-center flex-col bg-white p-4 m-4 rounded shadow-md">
+    <div className="flex items-center justify-center flex-col bg-white dark:bg-black p-4 m-4 rounded shadow-md">
       <header className='flex items-center justify-between w-4/5'>
         <div>
           <h1>{props.floorPlan}</h1>
@@ -44,9 +44,9 @@ export function Akiya(props:AkiyaProps) {
         src={props.mainImage}
       />
       <div className="flex items-center justify-center flex-row m-2 gap-2">
-        <div className="bg-orange-300 text-white rounded-2xl py-1 px-4">Venda</div>
-        <div className="bg-orange-400 text-white rounded-2xl py-1 px-4">Área de Migração</div>
-        <div className="bg-lime-300 text-white rounded-2xl py-1 px-4 hidden invisible">Aluguel</div>
+        <div className="bg-orange-300 dark:bg-orange-700 text-white rounded-2xl py-1 px-4">Venda</div>
+        <div className="bg-orange-400 dark:bg-orange-800 text-white rounded-2xl py-1 px-4">Área de Migração</div>
+        <div className="bg-lime-300 dark:bg-lime-700 text-white rounded-2xl py-1 px-4 hidden invisible">Aluguel</div>
       </div>
       <div className="flex flex-col w-full gap-2 p-1">
         <div className="flex items-center justify-center w-full">
