@@ -40,7 +40,7 @@ export function Akiya(props:AkiyaProps) {
         </div>
       </header>
       <img 
-        className="w-full md:w-80 rounded-lg hover:brightness-75 hover:border-2 hover:border-black"
+        className="w-full md:w-80 md:h-60 rounded-lg hover:brightness-75 hover:border-2 hover:border-black object-cover"
         src={props.mainImage}
       />
       <div className="flex items-center justify-center flex-row m-2 gap-2">
