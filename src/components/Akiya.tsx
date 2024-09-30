@@ -1,66 +1,70 @@
+import { languages } from "../utils/dictionary";
+import { parseFloorPlan } from "../utils/getRooms";
+import { AkiyaHeader } from "./AkiyaHeader";
+import { Feature } from "./Feature";
+import { Tags } from "./Tags";
+
 export interface AkiyaProps {
-  floorPlan: string | null | undefined;
-  price: number | bigint;
-  city: string | null | undefined;
-  prefecture: string | null | undefined;
-  mainImage: string | undefined;
-  landArea: number | null | undefined;
-  buildArea: number | null | undefined;
-  built: number | null | undefined;
-  vacantSince: number | null | undefined;
-  garages: number | null | undefined;
-  rooms: number | null | undefined;
+  id?: string         // Assuming id is a string (UUID)
+  floorPlan: string
+  isSelling?: boolean
+  salePrice: number
+  isRenting?: boolean
+  rentalPrice?: number
+  isMigrationArea?: boolean
+  city: string
+  prefecture: string
+  address?: string
+  map?: string
+  mainImage: string
+  floorPlanImage?: string
+  images?: string[]
+  videos?: string[]
+  landArea: number
+  buildArea: number
+  buildYear: Date
+  vacantSince: Date
+  garages: number
+  url?: string
+  sellerId?: string
+  currentLanguage: languages
 }
 
-export function Akiya(props:AkiyaProps) {
+export function Akiya({ floorPlan, isSelling = false, salePrice, isRenting = false, rentalPrice = 0, isMigrationArea, city, prefecture, address = "", map = "",
+  mainImage, floorPlanImage = "", images = [""], videos = [""], landArea, buildArea, buildYear, vacantSince, garages, url = "", sellerId = "", currentLanguage }: AkiyaProps) {
 
-  const japaneseIene = Intl.NumberFormat("ja", {
-    style: "currency",
-    currency: "JPY",
-  });
+  const { rooms, dining, kitchen, livingRoom } = parseFloorPlan(floorPlan)
 
-  const brazilianReal = Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  });
+  console.log(rooms, livingRoom, dining, kitchen );
+  
+  console.log(rentalPrice, address, map, floorPlanImage, images[0], videos[0], url, sellerId)
 
-  const BRLprice = Number(props.price) * 0.03975;
- 
   return (
     <div className="flex items-center justify-center flex-col bg-white dark:bg-black p-4 m-4 rounded shadow-md">
-      <header className='flex items-center justify-between w-4/5'>
-        <div>
-          <h1>{props.floorPlan}</h1>
-          <h2>{japaneseIene.format(props.price)}</h2>
-          <div>{brazilianReal.format(BRLprice)}</div>
-        </div>
-        <div>
-          <h2>{props.city}</h2>
-          <h3>{props.prefecture}</h3>
-        </div>
-      </header>
+      <AkiyaHeader 
+        floorPlan={floorPlan} 
+        price={salePrice} 
+        city={city} 
+        prefecture={prefecture}
+        currentLanguage={currentLanguage}
+      />
       <img 
         className="w-full md:w-80 md:h-60 rounded-lg hover:brightness-75 hover:border-2 hover:border-black object-cover"
-        src={props.mainImage}
+        src={mainImage}
       />
-      <div className="flex items-center justify-center flex-row m-2 gap-2">
-        <div className="bg-orange-300 dark:bg-orange-700 text-white rounded-2xl py-1 px-4">Venda</div>
-        <div className="bg-orange-400 dark:bg-orange-800 text-white rounded-2xl py-1 px-4">Área de Migração</div>
-        <div className="bg-lime-300 dark:bg-lime-700 text-white rounded-2xl py-1 px-4 hidden invisible">Aluguel</div>
-      </div>
-      <div className="flex flex-col w-full gap-2 p-1">
-        <div className="flex items-center justify-center w-full">
-          <div className="flex flex-1 items-center justify-center self-center border border-gray-100 my-1 mx-2 p-1 rounded w-1/2 text-xl"><strong>Terreno:&nbsp;</strong>{props.landArea}m²</div>
-          <div className="flex flex-1 items-center justify-center self-center border border-gray-100 my-1 mx-2 p-1 rounded w-1/2 text-xl"><strong>Const.:&nbsp;</strong>{props.buildArea}m²</div>
-        </div>
-        <div className="flex items-center justify-center w-full">
-          <div className="flex flex-1 items-center justify-center self-center border border-gray-100 my-1 mx-2 p-1 rounded w-1/2 text-xl" title="Ano de Construção">🏠: {props.built}</div>
-          <div className="flex flex-1 items-center justify-center self-center border border-gray-100 my-1 mx-2 p-1 rounded w-1/2 text-xl" title="Casa Vaga desde...">🏚️: {props.vacantSince}</div>
-        </div>
-        <div className="flex items-center justify-center w-full">
-          <div className="flex flex-1 items-center justify-center self-center border border-gray-100 my-1 mx-2 p-1 rounded w-1/2 text-xl"><strong>Vagas:&nbsp;</strong> {props.garages}&nbsp;🚗</div>
-          <div className="flex flex-1 items-center justify-center self-center border border-gray-100 my-1 mx-2 p-1 rounded w-1/2 text-xl"><strong>Quartos:&nbsp;</strong> {props.rooms}</div>
-        </div>
+      <Tags 
+        isSelling={isSelling}
+        isRenting={isRenting}
+        isMigrationArea={isMigrationArea}
+        currentLanguage={currentLanguage}
+      />
+      <div className="flex items-center justify-start flex-wrap w-full">
+        <Feature icon="land-area" value={landArea} currentLanguage={currentLanguage} />
+        <Feature icon="build-area" value={buildArea} currentLanguage={currentLanguage} />
+        <Feature icon="built" value={buildYear} currentLanguage={currentLanguage} />
+        <Feature icon="vacant" value={vacantSince} currentLanguage={currentLanguage} />
+        <Feature icon="garage" value={garages} currentLanguage={currentLanguage} />
+        <Feature icon="rooms" value={rooms} currentLanguage={currentLanguage} />
       </div>
     </div>
   )

@@ -113,20 +113,26 @@ model Booking {
 }
 
 model Akiya {
-  id          String            @id @default(uuid())
-  floorPlan   String
-  price       Int
-  salePrice   Int
-  city        String
-  prefecture  String
-  mainImage   String
-  picture     String[]
-  landArea    Int
-  buildArea   Int
-  built       DateTime
-  buildYear   Int
-  vacantSince Int
-  garages     Int
-  rooms       Int
-  bedrooms    Int
+  id              String            @id @default(uuid())
+  floorPlan       String
+  isSelling       Boolean
+  salePrice       Int
+  isRenting       Boolean
+  reltalPrice     Int
+  isMigrationArea Boolean
+  city            String
+  prefecture      String
+  address         String
+  map             String
+  mainImage       String
+  floorPlanImage  String
+  images          String[]
+  videos          String[]
+  landArea        Int
+  buildArea       Int
+  buildYear       DateTime
+  vacantSince     DateTime
+  garages         Int
+  url             String
+  sellerId        String
 }
