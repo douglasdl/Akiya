@@ -1,0 +1,102 @@
+export enum languages {
+  English,
+  Portuguese,
+  Japanese
+}
+
+export const words = {
+  akiyaBank: ["Akiya Bank", "Akiya Bank", "空き家バンク"],
+  buildingArea: ["Building Area", "Área de construção", "建物面積"],
+  buildingConstructionMaterials: ["Building Construction Materials", "Material de Estrutura da Construção", "建物構造材質"],
+  constructionYear: ["Construction Year", "Ano de Construção", "築年数"],
+  currentStatusDelivery: ["Current Status/Delivery", "Estado Atual/Entrega", "現況・引渡し"],
+  garages: ["Garages", "Vagas de Garagem", "駐車"],
+  landArea: ["Land Area", "Área do Terreno", "土地面積"],
+  location: ["Location", "localização", "所在地"],
+  migrationArea: ["Migration Area", "Área de Migração", ""],
+  others: ["Others", "Outros", "その他"],
+  propertyDetails: ["Property Details", "Detalhes da Propriedade", "物件詳細情報"],
+  propertyPrice: ["Property Price", "Preço do Imóvel", "物件価格"],
+  rental: ["Rental", "Aluguel", ""],
+  rooms: ["Rooms", "Quartos", "部屋数"],
+  sale: ["Sale", "Venda", ""],
+  transactionType: ["Transaction Type", "Tipo de Transação", "取引態様"],
+  vacantSince: ["Vacant since...", "Casa vaga desde...", "空き家年数"],
+}
+
+export const regions = {
+  hokkaido: ["Hokkaido", "Hokkaido", "北海道"],
+  touhoku: ["Tohoku", "Tōhoku", "東北"],
+  kanto: ["Kanto", "Kanto", "関東"],
+  chuubu: ["Chubu", "Chūbu", "中部"],
+  kansai: ["Kansai", "Kansai", "関西"],
+  kinki: ["Kinki", "Kinki", "近畿"],
+  chuugoku: ["Chugoku", "Chūgoku", "中国"],
+  shikoku: ["Shikoku", "Shikoku", "四国"],
+  kyuushuu: ["Kyushu", "Kyūshū", "九州"]
+};
+
+export const todoufuken = { 
+  to: ["metropolis", "metrópole", "都"],
+  dou: ["territory", "território", "道"],
+  fu: ["urban prefecture", "prefeitura urbana", "府"],
+  ken: ["prefecture", "província (prefeitura)", "県"],
+  shi: ["city", "cidade", "市"],
+  gun: ["district", "distrito", "郡"],
+  chou: ["town", "vila", "町"],
+  machi: ["town", "vila", "町"],
+  son: ["village", "aldeia", "村"],
+  mura: ["village", "aldeia", "村"],
+  shichou: ["subprefecture", "subprefeitura", "支庁"]
+};
+
+
+export const prefectures = {
+  hokkaido: ["Hokkaido", "Hokkaido", "北海道"],
+  aomori: ["Aomori", "Aomori", "青森県"],
+  iwate: ["Iwate", "Iwate", "岩手県"],
+  miyagi: ["Miyagi", "Miyagi", "宮城県"],
+  akita: ["Akita", "Akita", "秋田県"],
+  yamagata: ["Yamagata", "Yamagata", "山形県"],
+  fukushima: ["Fukushima", "Fukushima", "福島県"],
+  ibaraki: ["Ibaraki", "Ibaraki", "茨城県"],
+  tochigi: ["Tochigi", "Tochigi", "栃木県"],
+  gunma: ["Gunma", "Gunma", "群馬県"],
+  saitama: ["Saitama", "Saitama", "埼玉県"],
+  chiba: ["Chiba", "Chiba", "千葉県"],
+  tokyo: ["Tokyo", "Tokyo", "東京都"],
+  kanagawa: ["Kanagawa", "Kanagawa", "神奈川県"],
+  niigata: ["Niigata", "Niigata", "新潟県"],
+  toyama: ["Toyama", "Toyama", "富山県"],
+  ishikawa: ["Ishikawa", "Ishikawa", "石川県"],
+  fukui: ["Fukui", "Fukui", "福井県"],
+  yamanashi: ["Yamanashi", "Yamanashi", "山梨県"],
+  nagano: ["Nagano", "Nagano", "長野県"],
+  gifu: ["Gifu", "Gifu", "岐阜県"],
+  shizuoka: ["Shizuoka", "Shizuoka", "静岡県"],
+  aichi: ["Aichi", "Aichi", "愛知県"],
+  mie: ["Mie", "Mie", "三重県"],
+  shiga: ["Shiga", "Shiga", "滋賀県"],
+  kyoto: ["Kyoto", "Kyoto", "京都府"],
+  osaka: ["Osaka", "Osaka", "大阪府"],
+  hyogo: ["Hyogo", "Hyōgo", "兵庫県"],
+  nara: ["Nara", "Nara", "奈良県"],
+  wakayama: ["Wakayama", "Wakayama", "和歌山県"],
+  tottori: ["Tottori", "Tottori", "鳥取県"],
+  shimane: ["Shimane", "Shimane", "島根県"],
+  okayama: ["Okayama", "Okayama", "岡山県"],
+  hiroshima: ["Hiroshima", "Hiroshima", "広島県"],
+  yamaguchi: ["Yamaguchi", "Yamaguchi", "山口県"],
+  tokushima: ["Tokushima", "Tokushima", "徳島県"],
+  kagawa: ["Kagawa", "Kagawa", "香川県"],
+  ehime: ["Ehime", "Ehime", "愛媛県"],
+  kochi: ["Kochi", "Kochi", "高知県"],
+  fukuoka: ["Fukuoka", "Fukuoka", "福岡県"],
+  saga: ["Saga", "Saga", "佐賀県"],
+  nagasaki: ["Nagasaki", "Nagasaki", "長崎県"],
+  kumamoto: ["Kumamoto", "Kumamoto", "熊本県"],
+  oita: ["Oita", "Ōita", "大分県"],
+  miyazaki: ["Miyazaki", "Miyazaki", "宮崎県"],
+  kagoshima: ["Kagoshima", "Kagoshima", "鹿児島県"],
+  okinawa: ["Okinawa", "Okinawa", "沖縄県"]
+};
