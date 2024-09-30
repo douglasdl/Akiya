@@ -54,8 +54,9 @@ export function Feature({
   value, 
   unit = featureData[icon].unit
 }: FeatureProps) {
-  const formattedValue = 
-    value instanceof Date ? value.toLocaleDateString(currentLanguage === languages.Portuguese ? 'pt-BR' : 'en-US') : value;
+  // const formattedValue = value instanceof Date ? value.toLocaleDateString(currentLanguage === languages.Portuguese ? 'pt-BR' : 'en-US') : value;
+  const dateValue = typeof value === 'string' && !isNaN(Date.parse(value)) ? new Date(value) : value;
+  const formattedValue = dateValue instanceof Date ? dateValue.getFullYear() : dateValue;
   return (
     <div 
       className="flex flex-1 items-center justify-start border border-gray-800 my-1 mx-2 px-4 py-1 rounded min-w-1/2 w-1/2 text-xl" 

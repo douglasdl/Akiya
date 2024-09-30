@@ -21,6 +21,9 @@ export function AkiyaHeader({ floorPlan, price, city, prefecture, currentLanguag
 
   const BRLprice = Number(price) * 0.038;
 
+  const cities = city.split(",").map(part => part.trim());
+  const prefectures = prefecture.split(",").map(part => part.trim());
+
   return (
     <header className='flex items-center justify-between w-4/5'>
       <div>
@@ -29,8 +32,8 @@ export function AkiyaHeader({ floorPlan, price, city, prefecture, currentLanguag
         <div>{brazilianReal.format(BRLprice)}</div>
       </div>
       <div>
-        <h2>{city[currentLanguage]}</h2>
-        <h3>{prefecture[currentLanguage]}</h3>
+        <h2>{cities[currentLanguage]}</h2>
+        <h3>{prefectures[currentLanguage]}</h3>
       </div>
     </header>
   )

@@ -6,24 +6,30 @@ import { supabase } from "../libs/supabaseClient";
 import { languages } from "../utils/dictionary";
 
 export function Home() {
-  const [currentLanguage, serCurrentLanguage] = useState(languages.Portuguese)
+  const [currentLanguage, setCurrentLanguage] = useState(languages.Portuguese)
   const [akiyas, setAkiyas] = useState<AkiyaProps[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   async function getAkiyas() {
-    const { data, error } = await supabase.from("Akiya").select();
+    const { data, error } = await supabase.from("Akiya").select('*');
+    console.log("Data", data);
     if (error) {
       console.error('Error fetching akiyas:', error);
-      return;
-    }
-    if (data) {
+      setError('Failed to fetch akiyas. Please try again later.');
+    } else if (data) {
       setAkiyas(data);
     }
+    setLoading(false);
   }
 
   useEffect(() => {
     getAkiyas();
-    serCurrentLanguage(languages.Portuguese)
+    setCurrentLanguage(languages.Portuguese);
   }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
 
   return (
     <div>
