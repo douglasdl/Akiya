@@ -38,9 +38,8 @@ export function Akiya({ floorPlan, isSelling = false, salePrice, isRenting = fal
   console.log(rooms, livingRoom, dining, kitchen );
   
   console.log(rentalPrice, address, map, floorPlanImage, images[0], videos[0], url, sellerId)
-
   return (
-    <div className="flex items-center justify-center flex-col bg-white dark:bg-black p-4 m-4 rounded shadow-md">
+    <div className="w-full flex items-center justify-center flex-col bg-white dark:bg-black p-4 md:m-4 rounded shadow-md">
       <AkiyaHeader 
         floorPlan={floorPlan} 
         price={salePrice} 

@@ -4,6 +4,7 @@ import { Footer } from "../components/Footer";
 import { useEffect, useState } from "react";
 import { supabase } from "../libs/supabaseClient";
 import { languages } from "../utils/dictionary";
+import { FilterParams } from "../data/get-akiya";
 
 export function Home() {
   const [currentLanguage, setCurrentLanguage] = useState(languages.Portuguese)
@@ -11,9 +12,26 @@ export function Home() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  async function getAkiyas() {
-    const { data, error } = await supabase.from("Akiya").select('*');
-    console.log("Data", data);
+
+
+  async function getAkiyas({city, priceMin, priceMax}: FilterParams) {
+    let query = supabase.from("Akiya").select('*');
+  
+    if (city) {
+      query = query.eq('city', city);
+    }
+    if (priceMin) {
+      query = query.gte('salePrice', priceMin);
+    }
+    if (priceMax) {
+      query = query.lte('salePrice', priceMax);
+    }
+    // if (orderBy) {
+    //   query = query.order(orderBy);
+    // }
+  
+    const { data, error } = await query;
+  
     if (error) {
       console.error('Error fetching akiyas:', error);
       setError('Failed to fetch akiyas. Please try again later.');
@@ -24,7 +42,7 @@ export function Home() {
   }
 
   useEffect(() => {
-    getAkiyas();
+    getAkiyas({ orderBy: "prefecture", priceMin: 0, priceMax: 35000000, prefecture: "Osaka" });
     setCurrentLanguage(languages.Portuguese);
   }, []);
 
@@ -32,9 +50,10 @@ export function Home() {
   if (error) return <div>{error}</div>;
 
   return (
-    <div>
+    <div className="flex w-full flex-col m-0">
       <Header currentLanguage={currentLanguage} />
-      <div className="grid-cols-1 max-w-full my-0 mx-auto py-0 px-4 grid md:grid-cols-3 items-start bg-slate-100 dark:bg-slate-800 text-green-700 dark:text-green-200">
+      <span className="text:white">{akiyas.length}</span>
+      <div className="grid-cols-1 max-w-full mx-auto md:px-4 grid md:grid-cols-3 items-start bg-slate-100 dark:bg-slate-800 text-green-700 dark:text-green-200 gap-4 p-1">
         {akiyas.map(akiya => {
           const mainImage = akiya.mainImage? akiya.mainImage : "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg";
           
